@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+img{
+    margin: 0 auto;
+    display: block;
+}
+
+.wrapper{
+    position: relative;
+    width: 340px;
+    height: 480px;
+    margin: 40px auto;
+    background-image: url('../img/bg_day.png');
+}
+
+.menuStart,
+.main,
+.menuOver   {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 340px;
+    height: 480px; 
+    overflow: hidden;
+}
+
+.menuStart{
+    z-index: 100;
+}
+
+.gameOver{
+    margin-top: 80px;
+}
+
+.score_panel{
+    margin-top: 10px;
+}
+
+.menuOver > .start{
+    margin-top: 20px;
+}
+
+.title{
+    margin-top: 100px;
+}
+
+.start{
+    margin-top: 50px;
+}
+
+.land{
+    width: 680px; 
+    overflow: hidden;
+}
+
+.land img{
+    width: 340px;
+    float: left;
+}
+
+.pipes{
+    position: relative;
+    list-style: none;
+    height: 460px;
+}
+
+.pipe{
+    position: absolute;
+}
+
+.pipe_down{
+    background: url('../img/pipe_down.png') no-repeat;
+}
+
+.pipe_up{
+    bottom: 0;
+    background: url('../img/pipe_up.png') top no-repeat;
+}
