@@ -69,13 +69,21 @@ img{
 
 .pipe{
     position: absolute;
+    width: 60px;
+    height: 100%;
 }
 
 .pipe_down{
-    background: url('../img/pipe_down.png') no-repeat;
-}
-
-.pipe_up{
+    position: absolute;
+    width: 100%;
     bottom: 0;
     background: url('../img/pipe_up.png') top no-repeat;
 }
+
+.pipe_up{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: url('../img/pipe_down.png') bottom no-repeat;
+}
+
