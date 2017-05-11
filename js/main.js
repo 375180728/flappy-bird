@@ -1,3 +1,5 @@
+$j = jQuery
+
 function $(a) {
     return document.querySelector(a);
 }
@@ -76,25 +78,29 @@ function randomNum(m, n) {
 //生成管道
 function creatPipes() {
     //创建整根管道
-    var str = "<li class='pipe'><div class='pipe_up'></div><div class='pipe_down'></div></li>;"
-    pipes.innerHTML = str;
+    var pipeId = randomNum(1, 1000)
+    var str = "<li class='pipe' id='pipe"+pipeId+"'><div class='pipe_up' id='pipe_up"+pipeId+"' ></div><div class='pipe_down' id='pipe_down"+pipeId+"'></div></li>"
+    $j('.pipes').append(str);
     //上下管道的高度
     var topHeight = randomNum(50, 250);
-    downHeight = 460 - topHeight - 120;
+    var downHeight = 460 - topHeight - 120;
     //分别创建上下管道
-    var pipe_up = $('.pipe_up'),
-        pipe_down = $('.pipe_down');
-        pipe = $('pipe');
-    pipe_up.style.height = topHeight + 'px';
-    pipe_down.style.height = downHeight + 'px';
+    $j('#pipe_up' + pipeId).css('height', topHeight + 'px')
+    $j('#pipe_down' + pipeId).css('height', downHeight + 'px')
     //移动管道
-    var pipe_marginLeft = 340;
+    var pipeRight = -100;
     var pipeMoveTimer = setInterval(function(){
-        pipe_marginLeft--;
-        pipes.style.marginLeft = pipe_marginLeft + 'px';
-        if(pipe_marginLeft < -60){
+        pipeRight++;
+        $j('#pipe' + pipeId).css('right', pipeRight + 'px')
+        if(pipeRight > 340){
             clearInterval(pipeMoveTimer);
-            pipes.innerHTML = "";  
+            $j('#pipe' + pipeId).remove();
         }
     },15)
 }
+
+//改变分数
+var num = 0;
+// function changeScore{
+    
+// }
