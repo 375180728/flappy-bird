@@ -27,6 +27,18 @@ img{
     overflow: hidden;
 }
 
+.score{
+    position: absolute;
+    z-index: 1;
+    left: 44%;
+    margin-top: 20px;
+}
+
+.score img{
+    float: left;
+    padding-left: 8px; 
+}
+
 .menuStart{
     z-index: 100;
 }
