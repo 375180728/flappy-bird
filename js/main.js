@@ -7,6 +7,7 @@ function $(a) {
 var bird = $('.bird'),
     menuStart = $('.menuStart'),
     start = $('.start'),
+    start1 = $('.start1'),
     title = $('.title'),
     land = $('.land'),
     main = $('.main'),
@@ -19,7 +20,9 @@ var bird = $('.bird'),
     hit = $('.hit'),
     point = $('.point'),
     swooshing = $('.swooshing'),
-    wing = $('.wing');
+    wing = $('.wing'),
+    now = $('.now'),
+    best = $('.best');
 
 //游戏开始
 start.onclick = function() {
@@ -94,6 +97,22 @@ function gameOver() {
     menuOver.style.display = 'block';
     menuOver.style.zIndex = '1000';
     swooshing.play();
+    //清除所有定时器
+    var end = setInterval(function() {}, 1);
+    for (var i = 1; i <= end; i++) {
+        clearInterval(i);
+    }
+    //显示分数
+    now.innerHTML = num;
+    //获取最好的成绩
+    if (localStorage.best) {
+        var a = localStorage.best> num ? localStorage.best : num;
+        best.innerHTML = a;
+        localStorage.best = a;
+    } else {
+        best.innerHTML = num;
+        localStorage.best = num;
+    }
 }
 
 //随机生成
@@ -122,6 +141,9 @@ function creatPipes() {
             clearInterval(pipeMoveTimer);
             $j('#pipe' + pipeId).remove();
         }
+        if (pipeRight == 200) {
+            changeScore();
+        }
     }, 15)
 }
 
@@ -130,7 +152,7 @@ var num = 0;
 
 function changeScore() {
     num++;
-    point.play();  
+    point.play();
     score.innerHTML = "";
     if (num < 10) {
         var string = "<img src='img/font_" + num + ".png'>"
